@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>กลุ่มงานบริหารทั่วไป - โรงเรียนสา</title>
+  <style>
+    /* นำเข้าฟอนต์ภาษาไทย */
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      font-family: 'Sarabun', sans-serif;
+    }
+
+    .main-wrapper {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px;
+    }
+    
+    .header-section {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .school-logo {
+      height: 80px;
+      width: auto;
+      margin-bottom: 15px;
+    }
+
+    .header-section h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin: 0 0 5px 0;
+      line-height: 1.2;
+    }
+
+    .header-section p {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin: 0;
+    }
+    
+    .instruction-container {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .instruction-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-style: italic;
+      color: #95a5a6;
+      font-size: 0.9rem;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card-link {
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 280px;
+      padding: 30px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #34495e;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* เอฟเฟกต์ Pulse สำหรับเมนูที่ต้องการให้โดดเด่น (SA Smart) */
+    @keyframes pulse-animation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .card-featured {
+      background: linear-gradient(135deg, #fff9e6 0%, #ffecb3 100%);
+      border: 2px solid #ffd54f;
+      animation: pulse-animation 2s infinite ease-in-out;
+      position: relative;
+    }
+
+    .badge-new {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: #ff5722;
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    @media (min-width: 768px) {
+      .card-link:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .header-section h1 { font-size: 2.5rem; }
+      .school-logo { height: 100px; }
+    }
+
+    /* โทนสีสำหรับการ์ด */
+    .card-1 { background-color: #E3F2FD; } /* สีฟ้า - ปฏิทิน */
+    .card-2 { background-color: #F1F8E9; } /* สีเขียวอ่อน - รถโรงเรียน */
+    .card-3 { background-color: #F3E5F5; } /* สีม่วงอ่อน - คุณธรรม */
+
+    .card-icon {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: #d88e00;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    
+    .page-footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.85rem;
+      color: #95a5a6;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+
+  <!-- ส่วนหัวข้อ -->
+  <div class="header-section">
+    <img src="https://img2.pic.in.th/pic/sa1770b9ce234fe5584.png" alt="โลโก้โรงเรียน" class="school-logo">
+    <h1>กลุ่มงานบริหารทั่วไป</h1>
+    <p>General Administration Management System</p>
+  </div>
+  
+  <div class="instruction-container">
+      <div class="instruction-text">
+        <span>👉</span>
+        <span>เลือกบริการที่ต้องการเข้าใช้งาน</span>
+      </div>
+  </div>
+  
+  <!-- ส่วนรายการเมนู -->
+  <div class="card-container">
+    
+    <!-- 1. SA Smart (Featured) -->
+    <a href="https://jinchanyas-glide-big-5qv5.glide.page" class="card-link card-featured" target="_blank">
+      <span class="badge-new">แนะนำ</span>
+      <div class="card-icon">📱</div>
+      <h3 class="card-title">SA Smart</h3>
+      <div class="card-subtitle">✨ ติดตั้งแอปพลิเคชัน ✨</div>
+    </a>
+
+    <!-- 2. ปฏิทินปฏิบัติงาน -->
+    <a href="https://script.google.com/a/macros/saschool.ac.th/s/AKfycbzmhiD3AmQidt4H_NcFLiscVyXuPQhLe3LLaG6ZP_chboxoihAoc8brGilRD0flsTpV/exec" class="card-link card-1" target="_blank">
+      <div class="card-icon">📅</div>
+      <h3 class="card-title">ปฏิทินปฏิบัติงาน</h3>
+    </a>
+
+    <!-- 3. ระบบขอใช้รถโรงเรียน -->
+    <a href="https://sites.google.com/saschool.ac.th/general/car2" class="card-link card-2" target="_blank">
+      <div class="card-icon">🚐</div>
+      <h3 class="card-title">ระบบขอใช้รถโรงเรียน</h3>
+    </a>
+
+    <!-- 4. ระบบรายงานการส่งเสริมคุณธรรมจริยธรรม -->
+    <a href="https://jinchanya-boop.github.io/Ethics/" class="card-link card-3" target="_blank">
+      <div class="card-icon">✨</div>
+      <h3 class="card-title">รายงานการส่งเสริม<br>คุณธรรมจริยธรรม</h3>
+    </a>
+
+  </div>
+  
+  <!-- ส่วนท้าย -->
+  <footer class="page-footer">
+    <p>
+      <strong>กลุ่มงานบริหารทั่วไป โรงเรียนสา</strong> (saschool.ac.th)<br>
+      สำนักงานเขตพื้นที่การศึกษามัธยมศึกษาน่าน<br>
+      โทรศัพท์: 054-718546
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
