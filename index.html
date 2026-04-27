@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>กลุ่มงานบริหารทั่วไป - โรงเรียนสา</title>
   <style>
-    /* นำเข้าฟอนต์ภาษาไทย */
     @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
 
     body {
@@ -52,8 +51,8 @@
     }
     
     .instruction-container {
-        text-align: center;
-        margin-bottom: 25px;
+      text-align: center;
+      margin-bottom: 25px;
     }
 
     .instruction-text {
@@ -63,6 +62,20 @@
       font-style: italic;
       color: #95a5a6;
       font-size: 0.9rem;
+    }
+
+    /* หัวข้อกลุ่มเมนู */
+    .section-label {
+      width: 100%;
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #95a5a6;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 10px 0 5px 4px;
+      padding-left: 4px;
+      border-left: 3px solid #ddd;
     }
 
     .card-container {
@@ -88,9 +101,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      position: relative;
     }
 
-    /* เอฟเฟกต์ Pulse สำหรับเมนูที่ต้องการให้โดดเด่น (SA Smart) */
+    /* Featured - SA Smart */
     @keyframes pulse-animation {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
@@ -101,7 +115,6 @@
       background: linear-gradient(135deg, #fff9e6 0%, #ffecb3 100%);
       border: 2px solid #ffd54f;
       animation: pulse-animation 2s infinite ease-in-out;
-      position: relative;
     }
 
     .badge-new {
@@ -116,8 +129,28 @@
       font-weight: bold;
     }
 
+    /* badge เร็วๆ นี้ */
+    .badge-soon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: #78909c;
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    /* การ์ดที่ยังไม่พร้อมใช้งาน */
+    .card-disabled {
+      opacity: 0.75;
+      cursor: default;
+      pointer-events: none;
+    }
+
     @media (min-width: 768px) {
-      .card-link:hover {
+      .card-link:not(.card-disabled):hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
       }
@@ -125,12 +158,13 @@
       .school-logo { height: 100px; }
     }
 
-    /* โทนสีสำหรับการ์ด */
-    .card-1 { background-color: #E3F2FD; } /* สีฟ้า - ปฏิทิน */
-    .card-2 { background-color: #F1F8E9; } /* สีเขียวอ่อน - รถโรงเรียน */
-    .card-3 { background-color: #F3E5F5; } /* สีม่วงอ่อน - คุณธรรม */
-    /* สีสำหรับเมนูใหม่: ระบบขอเลขที่บันทึกข้อความ */
-    .card-4 { background-color: #EDE7F6; } /* สีม่วงอ่อน */
+    /* โทนสีการ์ด */
+    .card-1  { background-color: #E3F2FD; } /* ฟ้า - ปฏิทิน */
+    .card-2  { background-color: #F1F8E9; } /* เขียวอ่อน - รถโรงเรียน */
+    .card-3  { background-color: #F3E5F5; } /* ม่วงอ่อน - คุณธรรม */
+    .card-4  { background-color: #EDE7F6; } /* ม่วง - เลขที่บันทึก */
+    .card-5  { background-color: #E8F5E9; } /* เขียว - โฮมรูม */
+    .card-6  { background-color: #FFF3E0; } /* ส้มอ่อน - เยี่ยมบ้าน */
 
     .card-icon {
       font-size: 4rem;
@@ -175,15 +209,15 @@
   </div>
   
   <div class="instruction-container">
-      <div class="instruction-text">
-        <span>👉</span>
-        <span>เลือกบริการที่ต้องการเข้าใช้งาน</span>
-      </div>
+    <div class="instruction-text">
+      <span>👉</span>
+      <span>เลือกบริการที่ต้องการเข้าใช้งาน</span>
+    </div>
   </div>
   
-  <!-- ส่วนรายการเมนู -->
+  <!-- รายการเมนู -->
   <div class="card-container">
-    
+
     <!-- 1. SA Smart (Featured) -->
     <a href="https://jinchanyas-glide-big-5qv5.glide.page" class="card-link card-featured" target="_blank">
       <span class="badge-new">แนะนำ</span>
@@ -192,25 +226,38 @@
       <div class="card-subtitle">✨ ติดตั้งแอปพลิเคชัน ✨</div>
     </a>
 
-    <!-- 2. เมนูใหม่: ระบบขอเลขที่บันทึกข้อความ (วางถัดจาก SA Smart) -->
+    <!-- 2. ระบบขอเลขที่บันทึกข้อความ -->
     <a href="https://jinchanya-boop.github.io/memo/" class="card-link card-4" target="_blank">
       <div class="card-icon">🔢</div>
       <h3 class="card-title">ระบบขอเลขที่บันทึกข้อความ</h3>
     </a>
 
-    <!-- 3. ปฏิทินปฏิบัติงาน -->
+    <!-- 3. ระบบกิจกรรมโฮมรูม (ใหม่) -->
+    <a href="https://script.google.com/macros/s/AKfycbyeqQI3GpRU5CL09LkTcPb-pXtcPBud_S8xbpJf8A-_R_BbGhkjbvyb0iWsK8pPCdbhPg/exec" class="card-link card-5" target="_blank">
+      <div class="card-icon">🏫</div>
+      <h3 class="card-title">ระบบกิจกรรมโฮมรูม</h3>
+    </a>
+
+    <!-- 4. ระบบเยี่ยมบ้านนักเรียน (เร็วๆ นี้) -->
+    <a href="#" class="card-link card-6 card-disabled">
+      <span class="badge-soon">เร็วๆ นี้</span>
+      <div class="card-icon">🏠</div>
+      <h3 class="card-title">ระบบเยี่ยมบ้านนักเรียน</h3>
+    </a>
+
+    <!-- 5. ปฏิทินปฏิบัติงาน -->
     <a href="https://script.google.com/a/macros/saschool.ac.th/s/AKfycbxZXRIXQCXiJ1lo_EfGlgkuij0qnyZXajT8vxtaIvktGlg660HUArIgBZvFUu2FvRwL/exec" class="card-link card-1" target="_blank">
       <div class="card-icon">📅</div>
       <h3 class="card-title">ปฏิทินปฏิบัติงาน</h3>
     </a>
 
-    <!-- 4. ระบบขอใช้รถโรงเรียน -->
+    <!-- 6. ระบบขอใช้รถโรงเรียน -->
     <a href="https://sites.google.com/saschool.ac.th/general/car2" class="card-link card-2" target="_blank">
       <div class="card-icon">🚐</div>
       <h3 class="card-title">ระบบขอใช้รถโรงเรียน</h3>
     </a>
 
-    <!-- 5. ระบบรายงานการส่งเสริมคุณธรรมจริยธรรม -->
+    <!-- 7. ระบบรายงานการส่งเสริมคุณธรรมจริยธรรม -->
     <a href="https://jinchanya-boop.github.io/Ethics/" class="card-link card-3" target="_blank">
       <div class="card-icon">✨</div>
       <h3 class="card-title">รายงานการส่งเสริม<br>คุณธรรมจริยธรรม</h3>
