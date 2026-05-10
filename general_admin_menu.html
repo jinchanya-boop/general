@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>กลุ่มงานบริหารทั่วไป - โรงเรียนสา</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      font-family: 'Sarabun', sans-serif;
+    }
+
+    .main-wrapper {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px;
+    }
+    
+    .header-section {
+      text-align: center;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .school-logo {
+      height: 80px;
+      width: auto;
+      margin-bottom: 15px;
+    }
+
+    .header-section h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin: 0 0 5px 0;
+      line-height: 1.2;
+    }
+
+    .header-section p {
+      font-size: 1rem;
+      color: #7f8c8d;
+      margin: 0;
+    }
+    
+    .instruction-container {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .instruction-text {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-style: italic;
+      color: #95a5a6;
+      font-size: 0.9rem;
+    }
+
+    .section-label {
+      width: 100%;
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #95a5a6;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 10px 0 5px 4px;
+      padding-left: 4px;
+      border-left: 3px solid #ddd;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card-link {
+      border-radius: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      max-width: 280px;
+      padding: 30px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #34495e;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    @keyframes pulse-animation {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .card-featured {
+      background: linear-gradient(135deg, #fff9e6 0%, #ffecb3 100%);
+      border: 2px solid #ffd54f;
+      animation: pulse-animation 2s infinite ease-in-out;
+    }
+
+    .badge-new {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: #ff5722;
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    .badge-soon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: #78909c;
+      color: white;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    .card-disabled {
+      opacity: 0.75;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    @media (min-width: 768px) {
+      .card-link:not(.card-disabled):not(.card-no-link):hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+      .header-section h1 { font-size: 2.5rem; }
+      .school-logo { height: 100px; }
+    }
+
+    /* คลิกได้แต่ไม่มี href จริง */
+    .card-no-link {
+      cursor: pointer;
+    }
+
+    .card-1  { background-color: #E3F2FD; }
+    .card-2  { background-color: #F1F8E9; }
+    .card-3  { background-color: #F3E5F5; }
+    .card-4  { background-color: #EDE7F6; }
+    .card-5  { background-color: #E8F5E9; }
+    .card-6  { background-color: #FFF3E0; }
+
+    .card-icon {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      line-height: 1;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: #d88e00;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+    
+    .page-footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      border-top: 1px solid #e0e0e0;
+      font-size: 0.85rem;
+      color: #95a5a6;
+      line-height: 1.6;
+    }
+
+    /* Modal overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-box {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 340px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      font-family: 'Sarabun', sans-serif;
+    }
+    .modal-box .modal-emoji {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+    .modal-box .modal-msg {
+      font-size: 1.15rem;
+      color: #34495e;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .modal-btn {
+      background-color: #78909c;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 10px 30px;
+      font-size: 1rem;
+      font-family: 'Sarabun', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .modal-btn:hover {
+      background-color: #546e7a;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Modal สำหรับรถโรงเรียน -->
+<div class="modal-overlay" id="carModal">
+  <div class="modal-box">
+    <div class="modal-emoji">🚐</div>
+    <div class="modal-msg">อ๊ะ อ๊ะ ตอนนี้โรงเรียนยังใช้แบบ paper อยู่นะคะ</div>
+    <button class="modal-btn" onclick="closeModal()">รับทราบ</button>
+  </div>
+</div>
+
+<div class="main-wrapper">
+
+  <div class="header-section">
+    <img src="https://img2.pic.in.th/pic/sa1770b9ce234fe5584.png" alt="โลโก้โรงเรียน" class="school-logo">
+    <h1>กลุ่มงานบริหารทั่วไป</h1>
+    <p>General Administration Management System</p>
+  </div>
+  
+  <div class="instruction-container">
+    <div class="instruction-text">
+      <span>👉</span>
+      <span>เลือกบริการที่ต้องการเข้าใช้งาน</span>
+    </div>
+  </div>
+  
+  <div class="card-container">
+
+    <!-- 1. SA Smart (Featured) -->
+    <a href="https://jinchanyas-glide-big-5qv5.glide.page" class="card-link card-featured" target="_blank">
+      <span class="badge-new">แนะนำ</span>
+      <div class="card-icon">📱</div>
+      <h3 class="card-title">SA Smart</h3>
+      <div class="card-subtitle">✨ ติดตั้งแอปพลิเคชัน ✨</div>
+    </a>
+
+    <!-- 2. ระบบขอเลขที่บันทึกข้อความ -->
+    <a href="https://jinchanya-boop.github.io/memo/" class="card-link card-4" target="_blank">
+      <div class="card-icon">🔢</div>
+      <h3 class="card-title">ระบบขอเลขที่บันทึกข้อความ</h3>
+    </a>
+
+    <!-- 3. ระบบกิจกรรมโฮมรูม -->
+    <a href="https://script.google.com/macros/s/AKfycbyeqQI3GpRU5CL09LkTcPb-pXtcPBud_S8xbpJf8A-_R_BbGhkjbvyb0iWsK8pPCdbhPg/exec" class="card-link card-5" target="_blank">
+      <div class="card-icon">🏫</div>
+      <h3 class="card-title">ระบบกิจกรรมโฮมรูม</h3>
+    </a>
+
+    <!-- 4. ระบบประเมิน SDQ & EQ -->
+    <a href="https://sdq-eq-saschool.web.app/" class="card-link" style="background-color: #FCE4EC;" target="_blank">
+      <div class="card-icon">🧠</div>
+      <h3 class="card-title">ระบบประเมิน SDQ & EQ</h3>
+    </a>
+    
+    <!-- 5. ระบบเยี่ยมบ้านนักเรียน — เปิดแล้ว! -->
+    <a href="https://home-visit-system-1e7d9.web.app/" class="card-link card-6" target="_blank">
+      <div class="card-icon">🏠</div>
+      <h3 class="card-title">ระบบเยี่ยมบ้านนักเรียน</h3>
+    </a>
+
+    <!-- 6. ปฏิทินปฏิบัติงาน -->
+    <a href="https://script.google.com/a/macros/saschool.ac.th/s/AKfycbxZXRIXQCXiJ1lo_EfGlgkuij0qnyZXajT8vxtaIvktGlg660HUArIgBZvFUu2FvRwL/exec" class="card-link card-1" target="_blank">
+      <div class="card-icon">📅</div>
+      <h3 class="card-title">ปฏิทินปฏิบัติงาน</h3>
+    </a>
+
+    <!-- 7. ระบบขอใช้รถโรงเรียน — แสดง modal -->
+    <a href="#" class="card-link card-2 card-no-link" onclick="openCarModal(event)">
+      <div class="card-icon">🚐</div>
+      <h3 class="card-title">ระบบขอใช้รถโรงเรียน</h3>
+    </a>
+
+    <!-- 8. ระบบรายงานการส่งเสริมคุณธรรมจริยธรรม -->
+    <a href="https://jinchanya-boop.github.io/Ethics/" class="card-link card-3" target="_blank">
+      <div class="card-icon">✨</div>
+      <h3 class="card-title">รายงานการส่งเสริม<br>คุณธรรมจริยธรรม</h3>
+    </a>
+
+  </div>
+  
+  <footer class="page-footer">
+    <p>
+      <strong>กลุ่มงานบริหารทั่วไป โรงเรียนสา</strong> (saschool.ac.th)<br>
+      สำนักงานเขตพื้นที่การศึกษามัธยมศึกษาน่าน<br>
+      โทรศัพท์: 054-718546
+    </p>
+  </footer>
+
+</div>
+
+<script>
+  function openCarModal(e) {
+    e.preventDefault();
+    document.getElementById('carModal').classList.add('active');
+  }
+  function closeModal() {
+    document.getElementById('carModal').classList.remove('active');
+  }
+  document.getElementById('carModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+</script>
+
+</body>
+</html>
